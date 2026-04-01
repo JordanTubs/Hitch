@@ -27,7 +27,16 @@ function App() {
     setLoading(true);     // show loading spinner on button
     setTimeout(() => {
       setLoading(false);  // hide loading spinner
-      navigate("/home");  // redirect to Driver Home page after 1.5 seconds
+      if (email === "driver@gmail.com" && password === "driver") {
+        navigate("/home");  // redirect to Driver Home page after 1.5 seconds
+      } else {
+        setErrorMsg("Invalid email or password.");
+      } 
+      if (email === "pass@gmail.com" && password === "pass") {
+        navigate("/passenger-home");  // redirect to Passenger Home page after 1.5 seconds
+      } else {
+        setErrorMsg("Invalid email or password.");
+      }
     }, 1500);
   }
 
