@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ROOT - full screen wrapper */
+.home-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'DM Sans', sans-serif;
+  background: #ffffff;
+}
+
+/* ── OVERLAY - darkens screen when menu is open ── */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+/* ── SIDE MENU ── */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: #1a1a1a;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #2a2a2a;
+  /* starts off screen to the left */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+/* slides in when open */
+.side-menu-open {
+  transform: translateX(0);
+}
+
+/* MENU HEADER - profile area at top */
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1.5rem;
+  background: #003572;
+  border-bottom: 3px solid #e53535;
+}
+
+.menu-avatar {
+  font-size: 2rem;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-passenger-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.menu-passenger-email {
+  font-size: 0.78rem;
+  color: #aaaaaa;
+}
+
+/* MENU ITEMS - scrollable list */
+.menu-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+/* each menu item row */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.85rem 1.5rem;
+  background: none;
+  border: none;
+  color: #cccccc;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu-item:hover {
+  background: rgba(255,255,255,0.07);
+  color: #ffffff;
+}
+
+/* status item has space-between to show arrow on right */
+.menu-item-status {
+  justify-content: space-between;
+}
+
+.status-arrow {
+  font-size: 0.7rem;
+  color: #666;
+}
+
+/* STATUS SUBMENU - shown below Status item */
+.status-submenu {
+  display: flex;
+  flex-direction: column;
+  background: #111111;
+  border-left: 3px solid #e53535;
+  margin: 0 0 0 1.5rem;
+}
+
+/* each status option */
+.status-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.7rem 1.2rem;
+  background: none;
+  border: none;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+
+.status-option:hover {
+  background: rgba(255,255,255,0.05);
+  color: #ffffff;
+}
+
+/* active/selected status option */
+.status-option-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* colored dot indicator */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* MENU FOOTER - logout at bottom */
+.menu-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+.menu-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 0.85rem 0;
+  background: none;
+  border: none;
+  color: #e53535;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.menu-logout:hover { color: #c92b2b; }
+
+/* ── NAVBAR ── */
+.navbar {
+  width: 100%;
+  height: 64px;
+  background: #003572;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  border-bottom: 3px solid #e53535;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.hamburger:hover { background: rgba(255,255,255,0.1); }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo-circle {
+  font-size: 1.4rem;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav-link:hover { background: rgba(255,255,255,0.1); }
+
+.nav-link-active {
+  background: rgba(255,255,255,0.15);
+}
+
+/* LIVE STATUS in navbar */
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.nav-status-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-left: 0.5rem;
+  transition: background 0.2s;
+}
+
+.settings-btn:hover { background: rgba(255,255,255,0.1); }
+
+/* ── MAIN CONTENT ── */
+.home-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-image {
+  width: 260px;
+  height: 300px;
+  background: #d9d9d9;
+  border-radius: 16px;
+}
+
+.card-btn {
+  width: 260px;
+  padding: 0.85rem;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.card-btn:hover { background: #e53535; }
+.card-btn:active { transform: scale(0.98); }
+
+/* mobile */
+@media (max-width: 768px) {
+  .nav-link { display: none; }
+  .cards-container { flex-direction: column; align-items: center; }
+}
