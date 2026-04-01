@@ -10,6 +10,7 @@ function App() {
         <Route path="/" element={<DriverLogin />} />
         <Route path="/home" element={<DriverHome />} />
         <Route path="/passenger-home" element={<PassengerHome />} />  
+        <Route path="/login" element={<DriverLogin />} />
       </Routes>
     </BrowserRouter>
   );
